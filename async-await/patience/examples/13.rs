@@ -12,7 +12,7 @@ async fn main() {
 // enum StateMachine {
 //   Chunk1 {
 //     buffer: [u8, 1024],
-//     fut: tokio::fs::Fiel<'x>,
+//     fut: tokio::fs::File<'x>,
 //   },
 //   Chunk2 {},
 // }

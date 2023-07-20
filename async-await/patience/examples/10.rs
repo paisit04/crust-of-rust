@@ -8,7 +8,7 @@ async fn main() {
 
     while let Ok(stream) = accept.await {
         // create another future
-        // two threads can run parellel if the executore has more than 1 thread and the first thread is busy.
+        // two threads can run parellel if the executor has more than 1 thread and the first thread is busy.
         tokio::spawn(handle_connection(stream));
     }
 }

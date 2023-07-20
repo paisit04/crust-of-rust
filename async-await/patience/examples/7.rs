@@ -3,14 +3,14 @@
 use std::future::Future;
 
 fn main() {
-    let terminal = read_from_terminal();
+    let mut terminal = read_from_terminal();
 
     let mut foo = foo2();
 
     loop {
         select! {
-            foo <- foo.await => {}
-            line <- terminal.await => {
+            foo <- (&mut foo).await => {}
+            line <- (&mut terminal).await => {
                 // do something with line
             }
         }
