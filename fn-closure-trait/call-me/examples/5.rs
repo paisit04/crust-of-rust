@@ -44,9 +44,9 @@ where
     }
 }
 
-impl<F> FnMut() for F
+impl<F> Fn() for F
 where
-    F: Fn(),
+    F: FnMut(),
 {
     fn call(&mut self) {
         Fn::cal(&*self);

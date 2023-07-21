@@ -8,7 +8,7 @@ fn main() {
     };
 
     let f: Box<dyn FnOnce()> = Box::new(f);
-    quox(f); // the trait `Fn<()>` is not implemented for `dyn FnMut()`
+    quox(f);
 }
 
 fn quox<F>(f: F)

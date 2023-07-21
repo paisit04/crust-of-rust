@@ -1,8 +1,8 @@
 fn main() {
     println!("Hello, world!");
 
-    let mut x = bar::<i32>;
-    println!("{}", std::mem::size_of_val(&x));
+    let x = bar::<i32>;
+    println!("x size: {}", std::mem::size_of_val(&x));
 
     baz(bar::<u32>);
     baz(bar::<i32>);
@@ -10,6 +10,7 @@ fn main() {
 
     // non-capture closure
     let f = |x: i32, y: i32| x + y;
+    println!("f size: {}", std::mem::size_of_val(&f));
 
     // non-captured closure can converse to function pointer
     let f = || ();
@@ -18,11 +19,12 @@ fn main() {
     quox(&f);
 
     // change to mut
-    let mut z = String::new();
+    let mut z = String::from("Hello");
 
     // captured closure
     let f = || {
         z.clear();
+        println!("z: {}", z);
     };
 
     // Think of it like the complier generates
@@ -37,8 +39,8 @@ fn main() {
     //   }
     // }
 
-    baz(f); // not working
-    quox(&f); // not working
+    // baz(f); // not working
+    // quox(&f); // not working
     quox2(f); // working
 }
 

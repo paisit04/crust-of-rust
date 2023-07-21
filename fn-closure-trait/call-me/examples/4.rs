@@ -30,4 +30,4 @@ where
 
 // fn() function pointer has no state, no reference, no lifetime
 // means don't care about self (pointer to the function)
-// function pointer implement all three (Fn, FnMut, FnOnce)
+// function pointer implement all three traits (Fn, FnMut, FnOnce)
